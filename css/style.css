@@ -1,0 +1,1399 @@
+*{
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+    
+}
+/*Pequeños reseteos*/
+
+@font-face {
+  font-family: 'arcade';
+  src: url(../font/ARCADEPI.TTF);
+}
+@font-face {
+  font-family: 'arcade2';
+  src: url(../font/Arcade\ Future\ DEMO.otf);
+}
+@font-face {
+  font-family: 'arcade3';
+  src: url(../font/Arcade\ Boxes.ttf);
+}
+@font-face {
+  font-family: 'arcade4';
+  src: url(../font/Arcadedemo.otf);
+}
+
+/* ---------//////////////////////////------------LOGO---------------////////////////////////////////////------------- */
+#logo{
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 150px;
+}
+/* ----------------////////////////////////---------------MENU--------------------/////////////////////----------------- */
+
+.container{
+  
+  margin: 20px auto;
+  width: 90%;
+}
+
+/*Parte del logo y del menú*/
+
+header{
+  font-family: 'arcade2';
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu_item{
+  padding: 0.5em;
+  display: none;
+}
+
+.menu_item:hover{
+  text-shadow: 0px 0px 20px darkblue;
+  color: rgb(136, 136, 136);
+}
+
+/*Estilos parte principal*/
+
+.hidden{
+  display: none; 
+}
+
+/* -----------------------///////////////////////////-----SLIDER----------////////////////////////////////////////------------ */
+
+
+i{
+  font-family: 'arcade2';
+  font-size: 20px;
+}
+.section{
+  position: relative;
+  width: 100%;
+  display: block;
+}
+.full-height{
+  min-height: 25vh;
+}
+.over-hide{
+  overflow: hidden;
+}
+.padding-tb{
+  padding: 50px 0;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked){
+  position: absolute;
+  left: -9999px;
+}
+.checkbox:checked + label,
+.checkbox:not(:checked) + label{
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+  margin-right: 6px;
+  margin-left: 6px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid darkblue;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  background-image: url('../img/fondo\ 1.jpg');
+  animation: border-transform 6s linear infinite alternate forwards;
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  animation-play-state: paused;
+}
+.checkbox.scnd + label{
+  background-image: url('../img/fondopinball.jpg');
+}
+.checkbox.thrd + label{
+  background-image: url('../img/financiajuegos.png');
+}
+.checkbox.foth + label{
+  background-image: url('../img/alquiler.jpg');
+}
+.checkbox:checked + label{
+  box-shadow: 0 8px 25px 0 blue;
+  transform: scale(1.3);
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+   animation-play-state: running;
+}
+
+/* En esta animación conseguimos variar los bordes de los selectores que se encuentran debajo del slider
+los segundos definen el tiempo que tardará en realizar todas las acciones marcadas con porcentaje,
+y cada porcentaje marca una variación en su forma.*/
+
+@keyframes border-transform{
+  0%,100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; } 
+  14% { border-radius: 40% 60% 54% 46% / 49% 60% 40% 51%; } 
+  28% { border-radius: 54% 46% 38% 62% / 49% 70% 30% 51%; } 
+  42% { border-radius: 61% 39% 55% 45% / 61% 38% 62% 39%; } 
+  56% { border-radius: 61% 39% 67% 33% / 70% 50% 50% 30%; } 
+  70% { border-radius: 50% 50% 34% 66% / 56% 68% 32% 44%; } 
+  84% { border-radius: 46% 54% 50% 50% / 35% 61% 39% 65%; } 
+}
+
+.slider-height-padding {
+  padding-top: 425px;
+}
+
+ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  z-index: 100;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('../img/fondo\ 1.jpg');
+  border-radius: 50%;
+  box-sizing: border-box;
+  font-weight: 900;
+  color: white;
+  text-shadow: 5px 10px 10px white;
+  opacity: 0;
+  box-shadow: 0 8px 25px 0 blue;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+ul li:nth-child(2) {
+  background-image: url('../img/fondopinball.jpg');
+}
+ul li:nth-child(3) {
+  background-image: url('../img/financiajuegos.png');
+}
+ul li:nth-child(4) {
+  background-image: url('../img/alquiler.jpg');
+}
+.painball{
+  float: right;
+  width: 300px;
+  height: 300px;
+}
+.checkbox.frst:checked ~ ul li:nth-child(1) {
+  opacity: 1;
+  border-radius: 15px;
+}
+.checkbox.scnd:checked ~ ul li:nth-child(2) {
+  opacity: 1;
+  border-radius: 15px;
+}
+.checkbox.thrd:checked ~ ul li:nth-child(3) {
+  opacity: 1;
+  border-radius: 15px;
+}
+.checkbox.foth:checked ~ ul li:nth-child(4) {
+  opacity: 1;
+  border-radius: 15px;
+}
+.logo {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	display: block;
+	z-index: 100;
+	transition: all 250ms linear;
+}
+.logo img {
+	height: 26px;
+	width: auto;
+	display: block;
+}
+
+
+/* -------DECORACIÓN PARTES DEL SLIDER, LETRAS LUMINOSAS */
+
+/* Misma animación que la Sección ofertas */
+
+.financia{
+  font-family: 'arcade2';
+  animation: vibrar 0.5s infinite;
+  text-align: center;
+  font-size: 20px;
+  color: gold;
+  text-shadow: 0 0 20px gold;
+  margin-top: 70px;
+}
+
+
+
+
+
+/* --------------///////////////////////////////---------------TEXTO DEBAJO DEL SLIDER--------///////////////////////////////////////--------------- */
+
+.texto2{
+  text-align: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: 'arcade2';
+}
+.gif{
+  margin-bottom: 50px;  
+}
+.comecocos{
+  width: 150px;
+  height: 150px;
+}
+/* -------------------////////////////-----------MÁQUINA DETALLADA----------------//////////////////////////////// */
+
+.detalles{
+  display: flex;
+  margin-top: 100px;
+  padding: 0 150px;
+}
+.text_detalles{
+  font-family: 'arcade2';
+  font-size: 16px;
+}
+.maquina_detallada{
+  margin-left: 40px;
+}
+
+/* --------------////////////////////////--------------SECCION DE OFERTAS----------///////////////////////////////////////////////--------------------- */
+
+.ofertas{
+  position: absolute;
+  display: flex;
+  left: 0px;
+  right: 0px;
+  margin: 75px auto;
+  max-width: 1000px;
+  width: 85%;
+  justify-content: center;
+  background-image: url(../img/banner.jpg);
+  animation: movimiento 15s linear infinite alternate;
+  box-shadow: 5px 10px 20px darkblue;
+}
+
+@keyframes movimiento{
+  from{
+      background-position: left bottom;
+  }
+
+  to{
+      background-position: right top;
+  }
+}
+
+.oferta {
+  position: relative;
+  font-size:3em;
+  font:bold 7.5vw/1.6 'arcade4';
+  margin-top: 5vw;
+}
+
+/*AQUÍ RETOCAMOS LA ANIMACIÓN "VIBRAR", HACIENDO QUE VIBREN MÁS O MENOS RÁPIDO EN EL APARTADO
+ANIMATION. CON 0'3 SEGUNDOS SE QUEDA UNA VIBRACIÓN SUAVE. INFINITE PARA QUE NO PAREN DE VIBRAR*/
+h1 span{
+  display:inline-block; animation:vibrar .3s infinite; 
+}
+
+/*AQUÍ LLAMAMOS A LA ANIMACIÓN VIBRAR Y LA EDITAMOS. LOS PORCENTAJES HACEN QUE LAS LETRAS ROTEN
+EN SENTIDOS CONTRARIOS, DANDO EL EFECTO DE QUE VIBRAN.*/
+@keyframes vibrar{
+33%{ transform:translateY(-1px) rotate(-2deg); }
+66%{ transform:translateY(1px) rotate(2deg); }
+}
+
+/**AQUÍ RETOCAMOS LA ANIMACIÓN "RESALTAR", HACIENDO QUE SE AMPLIEN MÁS O MENOS RÁPIDO. LA TRANSICIÓN 
+DURARÁ EL TIEMPO QUE PONGAMOS (DE INICIO A FIN).*/
+h1:hover span{
+  animation:resaltar 1s;
+}
+
+/*AQUÍ LLAMAMOS A LA ANIMACIÓN RESALTAR Y LA EDITAMOS. LOS PORCENTAJES HACEN QUE LAS LETRAS SE AMPLÍEN
+MÁS O MENOS, DANDO UN EFECTO DE OLA. EL PRIMER PROCENTAJE DICTAMINA CUANDO EMPEZARÁN A EMPEQUEÑECER LAS 
+LETRAS, MIENTRAS QUE EL SEGUNDO DICTA CUANDO EMPIEZA A CRECER EL SIGUIENTE ELEMENTO.
+
+EL SCALE INDICA HASTA DONDE VAN A CRECER LAS LETRAS.*/
+@keyframes resaltar{
+  25%{ transform:rotateX(20deg) translateY(2px) rotate(-3deg); }
+  50%{ transform:translateY(-20px) rotate(3deg) scale(2);  }
+}
+
+/*EN ESTE APARTADO LO QUE HACEMOS ES ELEGIR LOS COLORES DE LAS LETRAS. CADA LETRA TIENE UN COLOR
+PRINCIPAL Y CUATRO CAPAS DE SOMBRAS. LAS SOMBRAS DICTAMINARÁN EL RELLENO DE CADA LETRA.
+
+LA SECUENCIA QUE SIGUEN ES DE 4 LETRAS, DADO QUE SON 9, LO HEMOS ORDENADO EN ORDEN DE 4, DE MODO QUE
+EMPIECE Y ACABE EN EL MISMO COLOR. SIGUIENDO EL ORDEN DE 4, LA 4N-3 SERÁ LA 1N, QUE ES LA PRIMERA, QUINTA
+Y LA ÚTLIMA.*/
+
+span:nth-child(4n-3) { color:rgb(248, 124, 145); text-shadow:1px 1px rgb(248, 124, 145), 2px 2px black, 3px 3px white, 4px 4px white; }
+span:nth-child(4n-2) { color:greenyellow; text-shadow:1px 1px greenyellow, 2px 2px black, 3px 3px white, 4px 4px white; }
+span:nth-child(4n-1) { color:orange; text-shadow:1px 1px orange, 2px 2px black, 3px 3px white, 4px 4px white; }
+span:nth-child(4n) { color:rgb(156, 156, 245); text-shadow:1px 1px rgb(156, 156, 245), 2px 2px black, 3px 3px white, 4px 4px white; }
+
+h1 span:nth-child(2){ animation-delay:.05s; }
+h1 span:nth-child(3){ animation-delay:.1s; }
+h1 span:nth-child(4){ animation-delay:.15s; }
+h1 span:nth-child(5){ animation-delay:.2s; }
+h1 span:nth-child(6){ animation-delay:.25s; }
+h1 span:nth-child(7){ animation-delay:.3s; }
+h1 span:nth-child(8){ animation-delay:.35s; }
+h1 span:nth-child(9){ animation-delay:.4s; }
+
+/* -------------/////////////////////////////////-----------------¿QUINES SOMOS?-------------/////////////////////////////////////////////////------------- */
+
+
+.parte3{
+  margin-top: 300px;
+}
+#texto{
+  text-align: center;
+  font-size: 20px;
+  font-family: 'arcade2';
+}
+.sellos{
+  margin-top: 80px;
+}
+.slider {
+  top: 150px;
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+}
+.slide::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+.slide::before {
+	left: 0;
+	top: 0;
+}	
+.slide-track {
+	animation: scroll 20s linear infinite;
+	display: flex;
+}	
+.slide {
+	height: 100px;
+	width: 250px;
+}
+
+/* Acudimos a la animación, en esta parte haremos que se traslade de derecha a izquierda, en un movimiento continuo. */
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+
+/* -----------------////////////////////////////////-------LOGOS EMPRESAS------------/////////////////////////////////////////////------------ */
+
+
+
+.parte4{
+  font-family: 'arcade2';
+  font-size: 25px;
+  padding: 20px;
+  margin-top: 400px;
+  text-align: center;
+}
+.empresas{
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+}
+
+
+
+/* -----------------------------------////////////////////----LETRAS PRODUCTOS------///////////////////////---------------------------------------- */
+
+.letras {
+  position: relative;
+  top:100px;
+  text-align: center;
+  font-family: "arcade2";
+  letter-spacing: 15px;
+  padding: 80px;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255,255,255,.5);
+  background: url(../img/fondo\ 1.jpg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: letras 5s linear infinite;
+  text-shadow: 0 0 20px darkblue;
+}
+.letras2{
+  position: relative;
+  top:100px;
+  text-align: center;
+  font-family: 'arcade2';
+  letter-spacing: 15px;
+  padding: 80px;
+  display: block;
+  margin: 0 auto;
+  background: url(../img/letras2.jpg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: letras 10s linear infinite;
+  text-shadow: 0 0 30px white;
+}
+
+
+
+/* Animación fondo letras, esta animación es muy parecida a la animación del slider publicitario, hacemos que el background no permanezca fijo.
+Se desplaza de izquierda a derecha devido a los porcentajes que están marcados y que hacen referencia a su posicion.*/
+
+@keyframes letras {
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
+}
+
+
+/* ------------/////////////////////////////////////////////////---------------- PRODUCTOS-------------------/////////////////////////////////////---------- */
+.parte_maq{
+background-image: url(../img/retrogames.jpg);
+background-size: 100%;
+}
+.container_cards{
+  font-family: 'arcade2';
+  max-width: 1400px ;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card{
+  width: 300px;
+  margin: 10px;
+  transition: all 300ms;
+}
+.card:hover{
+  width: 350px;
+}
+.card .cover{
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+.card .cover img{
+  height: 250px;
+  display: block;
+  margin: auto;
+  position: relative;
+  top: 40px;
+  z-index: 1;
+  filter: drop-shadow(5px 5px 4px rgba(0,0,0,0.5));
+  transition: all 400ms;
+}
+.card:hover .cover img{
+  top:0px;
+  filter: none;
+}
+.card .img_back{
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  background-size: cover;
+  border-radius: 20px;
+  transition: all 300ms;
+}
+/*Pseudo clase :nth-of-type() en css selecciona uno o más elementos de un tipo dado,
+es decir, pueden ser p, img, videos, etc. en funcion de su posición los situa entre un grupo 
+de hermanos  */
+
+.card:nth-of-type(1) .img_back{
+  background-image: url(../img/marvelparallax.jpg);
+}
+.card:nth-of-type(2) .img_back{
+  background-image: url(../img/marioparallax.jpg);
+}
+.card:nth-of-type(3) .img_back{
+  background-image: url(../img/streetfightersparallax.png);
+}
+.card:nth-of-type(4) .img_back{
+  background-image: url(../img/pinballparalla.jpg);
+}
+.card:nth-of-type(5) .img_back{
+  background-image: url(../img/panparallax.jfif);
+}
+.card:nth-of-type(6) .img_back{
+  background-image: url(../img/bubbleparallax.jpg);
+}
+.card:nth-of-type(7) .img_back{
+  background-image: url(../img/banner.jpg);
+}
+.card:nth-of-type(8) .img_back{
+  background-image: url(../img/pacmanparrallax.jpg);
+}
+
+.card:hover .img_back{
+  bottom: -40px;
+}
+.card .description{
+  margin-top: -10px;
+  padding: 20px;
+  border-radius: 0px 0px 20px 20px;
+  transition: all 300ms;
+  background: white;
+}
+.card:hover .description{
+  padding: 40px;
+}
+.card .description h2{
+  margin-top: 10px;
+}
+.card .description p{
+  margin-top: 10px;
+}
+.card .description input{
+  text-align: center;
+  padding: 10px 40px;
+  margin-top: 20px;
+  border: none;
+  width: 150px;
+  background-color: darkblue;
+  font-size: 25px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 300ms;
+  color: white;
+}
+.card .description input:hover{
+  background: skyblue;
+  box-shadow: 10px 15px 20px black;
+
+}
+
+.text_productos{
+  font-family: 'arcade2';
+  margin-top: 50px;
+  text-align: center;
+  padding: 0 20px;
+}
+.text_video{
+  font-family: 'arcade';
+  text-shadow: 5px 10px 20px darkblue;
+  animation: movimiento2 5s linear infinite;
+}
+.text_video:hover{
+  color: darkblue;
+  text-shadow: 5px 10px 20px black;
+}
+@keyframes movimiento2 {
+  25%{ transform:rotateX(20deg) translateY(2px) rotate(-5deg); }
+  50%{ transform:translateY(-20px) rotate(5deg);}
+  
+}
+.video{
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 100px;
+  
+}
+.video1{
+  margin-top:50px;
+}
+.video2{
+  margin-top:50px;
+}
+
+
+/* --------////////////////////////---------PÁGINA SERVICIOS---------/////////////////////////////// */
+
+.fondo_ser{
+  background:gold;
+}
+.titserv{
+  position: relative;
+  top:100px;
+  text-align: center;
+  font: 70px;
+  letter-spacing: 15px;
+  padding: 80px;
+  display: block;
+  text-align: center;
+  
+}
+
+.servicios{
+  font-family: 'arcade2';
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: 100px;
+}
+
+.carta{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  top: 0px;
+  margin: 50px;
+}
+
+.carta .face{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.carta .front{
+  transform: perspective(600px)rotateY(0deg);
+  box-shadow: 0px 5px 10px #000;
+}
+
+.carta .front img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+}
+
+.carta .back{
+  transform: perspective(600px)rotateY(180deg);
+  box-shadow: 0px 5px 10px #000;
+  background: black;
+  padding: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.carta .back p{
+  letter-spacing: 1px;
+  margin-top: 100px;
+}
+
+.carta .back .soporte{
+  margin-top: 70px;
+}
+
+.carta:hover .front{
+  transform: perspective(600px)rotateY(180deg);
+}
+
+.carta:hover .back{
+  transform: perspective(600px)rotateY(360deg);
+}
+
+.aplazos{
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  background: rgba(255, 0, 0, .2);
+  padding: 20px;
+  box-shadow: 0 0 20px inset white;
+  animation: box-glow 1s ease-out infinite alternate;
+  border-radius: 5px;
+}
+.text_banco{
+  font-family: 'arcade2';
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+/* /////////////////////////////////////////////////////////-----PAGINA AREA CLIENTES------------///////////////////////////////////////////// */
+.general{
+  display: flex;
+  justify-content: center;
+}
+
+#fade-box {
+animation: input-entry 3s ease-in; 
+} 
+::placeholder{
+  color:black;    
+}
+
+.login {
+  animation: form-entry 3s ease-in-out; 
+  background-image: url(../img/superpang.gif);
+  background-size: 100%;
+  border: 6px solid skyblue;
+  box-shadow: 10px 20px 20px darkblue;
+  border-radius: 5px;
+  display: inline-block;
+  height: 220px;
+  margin: 200px auto 0;
+  position: relative;
+  z-index: 4;
+  width: 500px;
+  transition: 1s all ;
+}
+.login:hover {
+  border: 6px solid #0044ff;
+  box-shadow: 0 0 25px #0044ff;
+  transition: 1s all ;
+}
+
+#username{
+  background: linear-gradient(darkblue, rgb(9, 255, 235));	
+  border-radius: 5px;
+  display: block; 
+  font-size: 20px;
+  height: 40px;
+  margin: 20px auto 10px; 
+  padding: 0 10px;
+  text-shadow: 0 -1px 0 black;
+  width: 400px; 
+}
+
+#username:focus {
+animation: box-glow 1s ease-out infinite alternate;
+background: linear-gradient(#333933, #222922);
+border-color: gold;
+box-shadow: 0 0 5px black, inset 0 10px 5px black, 0 2px 0 white;
+color: gold;
+outline: none;
+}
+#username:invalid {
+border: 2px solid white;
+box-shadow: 0 0 5px rgba(255, 0, 0, .2), inset 0 0 5px rgba(255, 0, 0, .1), 0 2px 0 #000;
+}
+  
+button { 
+animation: input-entry 3s ease-in; 
+background: #222;
+background: linear-gradient(#333, #222);
+box-sizing: content-box;
+border: 1px solid #444;
+border-left-color: #000; 
+border-radius: 15px;
+box-shadow: 0 2px 0 #000;
+color: #fff;
+display: block;
+font-size: 13px;
+font-weight: 400;
+height: 40px;
+line-height: 40px;
+margin: 20px auto; 
+padding: 0; 
+position: relative;
+text-shadow: 0 -1px 0 #000;
+width: 400px;
+transition: 1s all ;
+}	
+  
+button:hover,
+button:focus {
+background: linear-gradient(black, darkblue);
+color: white;
+outline: none;
+transition: 1s all ;
+}
+  
+button:active {
+  background: #292929;
+background: linear-gradient(silver, darkblue);
+box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+top: 1px; 
+}
+
+
+
+
+/* --------------//////////////////////////-------------REGISTRO--------------//////////////////////////// */
+
+.padre_inscripcion{
+  font-family: 'arcade2';
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 650px;
+}
+#forma{
+  height: auto;
+  background-image: url(../img/marioparallax.jpg);
+  padding: 40px 0;
+  box-shadow: 5px 10px 20px darkblue;
+  width: 750px;
+}
+h1{
+  text-align: center;
+  font-weight: 700;
+  color: white;
+}
+
+#forma{
+  width: 100%;
+  margin: auto;
+}
+#forma .grupo{
+  position: relative;
+  margin: 45px;
+}
+.inputa{
+  background: none;
+  color: black;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid white;
+}
+.inputa:focus{
+  outline: none;
+  color: white;
+}
+.nombre_seccion{
+  color: black;
+  font-size: 16px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transition: 0.5s ease all;
+  pointer-events: none;
+}
+.inputa:focus ~ .nombre_seccion, .inputa:valid ~ .nombre_seccion{
+  top: -14px;
+  font-size: 25px;
+  color: white;
+  text-shadow: 0px 10px 15px white;
+  background: url(../img/fondo\ 1.jpg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: letras 5s linear infinite;
+  text-shadow: 0 0 20px darkblue;
+}
+.barra{
+  position: relative;
+  display: block;
+  width: 50px;
+}
+.inputa:focus ~ .barra::before{
+  width: 100%;
+}
+.logear , .condiciones{
+  text-align: center;
+  color:white;
+  
+}
+.buttona{
+  font-family: "arcade2";
+  background: linear-gradient(to right, #F3F9A7, #CAC531); 
+  border-radius: 150px;
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  color: black;
+  height: 40px;
+  font-size: 16px;
+  cursor:pointer;
+}
+.link{
+  color:black;
+}
+
+
+
+
+/* Con estas animaciones conseguimos que la aparcicion del div, este retardado y tenga una transición de deslizamiento,
+su funcionamiento es el siguiente, los porcentajes marcan determinadas caracteristicas que tendran en ese momento los elementos contenidos, es decir, como se observa 
+en la primera transicion, los elementos que están dentro de la caja contenedora o form, son transparantes o no visibles hasta llegar a su 100% de tamaño.
+en cambio el segundo keyframes, genera otras propiedades para la caja contenedora o form, su tamaño inicial y opacidad es de 0, y según aumenta de tamaño, adquiere 
+ciertas propiedades, al llegar al 20% de su tamaño aparece un borde solido de 1px color azul, aunque algunos elementos se mantienen ocultos, según va ganando
+tamaño, aparecen nuevas propiedades, hasta llegar a su 100%  */
+
+@keyframes input-entry {
+0% {
+  opacity: 0;
+}	
+90% {
+  opacity: 0;
+}
+
+100% {
+  opacity: 1;
+}
+}
+
+@keyframes form-entry {
+0% {
+  height:0;
+  width: 0;
+  opacity: 0;   
+  padding: 0;
+}	
+20% {
+  height: 0;
+  border: 1px solid darkblue;
+  width: 0;
+  opacity: 0;  
+  padding: 0; 
+}	
+
+
+40% {
+  width: 0;
+  height: 220px;
+  border: 6px solid darkblue; 
+  opacity: 1 ; 
+  padding: 0;
+}
+
+100% {
+  height: 220px; 
+  width: 500px;
+  
+}
+}
+
+/* Con esta animación conseguimos darle una sensación de parpadeo al box-shadow que se encuentra dentro de los imput */
+
+@keyframes box-glow {
+  0% {
+    border-color: red;
+    box-shadow: 0 0 5px white, inset 0 0 5px red;
+  }	
+  100% {
+    border-color: white;
+    box-shadow: 0 0 20px red, inset 0 0 10px black, inset 0px 0px 20px white;
+  }
+}
+#juego{
+  margin-top: 100px;
+  width: 100%;
+  height:500px; 
+}
+
+
+/* ------------------///////////////////////////////////////////----FORMULARIO DE CONTACTO-------------/////////////////////////////////////////// */
+
+
+.contact_form{
+  width: 460px; 
+  height: 1200px; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  border-radius: 10px;  
+  margin: 80px auto;
+  padding-bottom: 20px;  
+  background-image: url(../img/gif\ tetris2.gif);
+  background-size: 100%;
+  box-shadow: 0 18px 30px 0 rgb(37, 37, 250); 
+  }
+  .formu , .breve{
+    font-family: 'arcade2';
+  }
+  .imagen_formulario img{
+    width: 300px;
+    height: 200px;
+    margin-left: 50px;
+  }
+  .inputf{
+  background-color: #fbfbfb; 
+  width: 408px; 
+  height: 40px; 
+  border-radius: 5px;  
+  border-style: solid; 
+  border-width: 1px; 
+  border-color: #3964f0; 
+  margin-top: 10px;  
+  padding-left: 10px;
+  margin-bottom: 20px; 
+  border: none;
+  animation: box-glow 1s ease-out infinite alternate;
+  }
+  .selectf{
+  background-color: #fbfbfb; 
+  width: 408px; 
+  height: 40px; 
+  border-radius: 5px;  
+  border-style: solid; 
+  border-width: 1px; 
+  border-color: #3964f0; 
+  margin-top: 10px;  
+  padding-left: 10px;
+  margin-bottom: 20px; 
+  animation: box-glow 1s ease-out infinite alternate;
+  }
+  .texto_mensaje{
+  background-color: #fbfbfb; 
+  width: 405px; 
+  height: 150px; 
+  border-radius: 5px;  
+  border-style: solid; 
+  border-width: 1px; 
+  border-color: #3964f0; 
+  margin-top: 10px;  
+  padding-left: 10px;
+  margin-bottom: 20px; 
+  padding-top: 15px; 
+  animation: box-glow 1s ease-out infinite alternate;
+  }
+  .labelf{
+  display: block; 
+  float: center; 
+  font-family: 'arcade2';
+  }
+  .buttonf{
+  height: 45px; 
+  padding-left: 5px;
+  padding-right: 5px; 
+  margin-bottom: 20px; 
+  margin-top: 10px; 
+  text-transform: uppercase;
+  background-color: #3964f0; 
+  border-color: #3964f0; 
+  border-style: solid; 
+  border-radius: 10px;
+  width: 420px;   
+  cursor: pointer;
+  }
+  .buttonf .pf{
+  color: #fff; 
+  }
+  span{
+  color: #c04c4c; 
+  }
+  .aviso{
+  font-size: 13px;  
+  color: #fcf9f9;  
+  }
+  .formu{
+  font-size: 39px;  
+  text-align: letf; 
+  padding-bottom: 20px; 
+  color: #fffcfc;
+  }
+  .breve{
+  font-size: 16px; 
+  padding-bottom: 30px;
+  color: #ffffff;   
+  }
+  .pf{
+  font-size: 20px; 
+  color: #ffffff; 
+  font-weight: bold;
+  } 
+
+  /* Mencionamos la clase en la que esta el "PLACEHOLDER" para poder cambiarle tipo de letra etc... esta letras son las que se encuentran dentro de los imput */
+
+  .inputf::placeholder{
+    font-family: 'arcade2';
+    font-weight: bold;
+  }
+
+   /*Aqui le damos propiedades, como fondo etc, para cuando se pinche sobre el campo para escribir, en este caso, la letra será roja
+   y un background con un negro algo transparente */ 
+
+  .inputf:focus{
+    font-family: 'arcade2';
+    background: rgba(0, 0, 0, 0.801);
+    color: red;
+  }
+
+  /* ------------------////////////////////////////////---GRACIAS----/////////////////////////////////////////////////////////////////// */
+  .gracias{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  .word {
+    font-family: 'arcade2';
+    perspective: 1000px; 
+  }
+  
+  .word span {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 100px;
+    user-select: none;
+    line-height: .8;
+  }
+  
+  .word span:nth-child(1).active {
+    animation: balance 1.5s ease-out;
+    transform-origin: bottom left;
+  }
+  
+  @keyframes balance {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    
+    30%, 60% {
+      transform: rotate(-45deg);
+    }
+  }
+  
+  .word span:nth-child(2).active {
+    animation: shrinkjump 1s ease-in-out;
+    transform-origin: bottom center;
+  }
+  
+  @keyframes shrinkjump {
+    10%, 35% {
+      transform: scale(2, .2) translate(0, 0);
+    }
+    
+    45%, 50% {
+      transform: scale(1) translate(0, -150px);
+    }
+    
+    80% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+  
+  .word span:nth-child(3).active {
+    animation: falling 2s ease-out;
+    transform-origin: bottom center;
+  }
+  
+  @keyframes falling {
+    12% {
+      transform: rotateX(240deg);
+    }
+    
+    24% {
+      transform: rotateX(150deg);
+    }
+    
+    36% {
+      transform: rotateX(200deg);
+    }
+    
+    48% {
+      transform: rotateX(175deg);
+    }
+    
+    60%, 85% {
+      transform: rotateX(180deg);
+    }
+    
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+  
+  .word span:nth-child(4).active {
+    animation: rotate 1s ease-out;
+  }
+  
+  @keyframes rotate {
+    20%, 80% {
+      transform: rotateY(180deg);
+    }
+    
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  
+  .word span:nth-child(5).active {
+    animation: toplong 1.5s linear;
+  }
+  .word span:nth-child(6).active {
+    animation: balance 1.5s ease-out;
+    transform-origin: bottom left;
+  }
+  .word span:nth-child(7).active {
+    animation: shrinkjump 1s ease-in-out;
+    transform-origin: bottom center;
+  }
+  
+
+  @keyframes toplong {
+    10%, 40% {
+      transform: translateY(-48vh) scaleY(1);
+    }
+    
+    90% {
+      transform: translateY(-48vh) scaleY(4);
+    }
+  }
+  
+  
+  .pulsa{
+    margin: 80px;
+    font-family: 'arcade';
+    font-size: 20px;
+    text-align: center;
+  }
+  
+
+
+  
+  /* ----------///////////////////////////////////////////-------RESPONSIVE DE LA PÁGINA--------//////////////////////////////////////////----------------- */
+
+
+@media screen and (max-width:1260px){
+.videos{
+  display: grid;
+}
+.video1 , .video2 {
+  width: 70%;
+}
+.letras{
+  font-size: 80px;
+}
+.letras2{
+  font-size: 80px;
+}
+.logobanco{
+  width: 90%;
+}
+.parte3{
+  margin-top: 100px;
+}
+.slider_fin > img{
+  width: 95%;
+}
+.slider_fin{
+  margin: 50px 50px;
+  
+}
+}
+
+@media screen and (max-width:1050px){
+.slider{
+   width: 90%;
+}
+.letras{
+  font-size: 50px;
+}
+.letras2{
+  font-size: 50px;
+}
+.parte3{
+  margin-top: 100px;
+}
+.detalles{
+  display: grid;
+  padding: 0 10px;
+}
+.maquina_detallada{
+  margin-top: 50px;
+}
+
+}
+
+
+@media screen and (max-width:992px){
+.hidden{
+  display: block;
+}
+section.images{
+  order: 1;
+}
+section.main_text{
+  order: 2;
+}
+section.images img{
+  height: 33%;
+  width: 33%;
+}
+.letras{
+  font-size: 30px;
+}
+.letras2{
+  font-size: 30px;
+}
+.general{
+  margin-left: 20px;
+  width: 90%;
+}
+.parte3{
+  margin-top: 100px;
+}
+}
+
+@media screen and (min-width:870px){
+  nav{
+    display: flex;
+  }
+  .menu_item{
+    display: inline-block;
+  }
+  .icon{
+    display:none;
+  }
+  section.parte2.container2{
+    display: flex;      
+  }
+  .slider-height-padding {
+    padding-top: 340px;
+  }
+  ul li {
+    height: 300px;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  input{
+    display: flex;
+    font-size: 12px;
+  }
+  label{
+    font-size: 20px;
+    top: 0px;
+  }
+  h1{
+    font-size: 20px;
+  }
+  button{
+    font-size: 14px;
+  }
+  .letras{
+    font-size: 80px;
+  }
+  .letras2{
+    font-size: 80px;
+  }
+  .parte3{
+    margin-top: 250px;
+  }
+  .slider_fin{
+    display: none;
+   }
+}
+
+
+
+
